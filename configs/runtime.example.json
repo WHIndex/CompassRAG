@@ -1,0 +1,9 @@
+{
+  "model_name": "reader-model",
+  "model_base_url": "https://example.invalid/v1",
+  "embedding_model_name": "nvidia/NV-Embed-v2",
+  "embedding_batch_size": 8,
+  "top_k": 5,
+  "cost_budget": 1.0,
+  "risk_budget": 0.1
+}

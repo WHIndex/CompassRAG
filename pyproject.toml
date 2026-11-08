@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "compassrag"
+version = "0.1.0"
+description = "Executable evidence ontology construction and cost-based evidence query planning"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [{name = "WHIndex"}]
+dependencies = [
+  "boto3",
+  "einops",
+  "filelock",
+  "httpx",
+  "litellm==1.73.1",
+  "networkx==3.4.2",
+  "numpy",
+  "packaging",
+  "pydantic==2.10.4",
+  "python-igraph==0.11.8",
+  "scikit-learn",
+  "scipy",
+  "tenacity==8.5.0",
+  "tiktoken==0.7.0",
+  "torch==2.5.1",
+  "tqdm",
+  "transformers==4.45.2",
+]
+
+[project.optional-dependencies]
+local = ["gritlm==1.0.2", "vllm==0.6.6.post1"]
+test = ["pytest>=8"]
+
+[project.scripts]
+compassrag = "compassrag.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+compassrag = ["prompts/**/*.json"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]
+testpaths = ["tests"]
